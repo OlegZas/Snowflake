@@ -1,3 +1,5 @@
 Creating a Warehouse in Snowflake: 
+- credits are billed on a per-second basis with a minimum usage of 1 minute. 
 
-![image](https://github.com/user-attachments/assets/0c54eea6-d99d-495d-9bbd-ae6d5ef3c00c)
+![image](https://github.com/user-attachments/assets/9605da33-8d3c-45ea-8e79-c5619f3795d7)
+
