@@ -6,3 +6,7 @@ Creating a Warehouse in Snowflake:
 Privileges: 
 
 ![image](https://github.com/user-attachments/assets/44eadb8e-05c2-4784-9ccc-8b1a4eb15582)
+
+Loading Data into the database: 
+
+![image](https://github.com/user-attachments/assets/c44607cf-e12a-4a4d-8a87-3123d822e791)
