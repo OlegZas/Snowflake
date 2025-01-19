@@ -90,3 +90,10 @@ WHERE manager_id in
             WHERE country_id='US')
         )
     );
+/*
+4. Write a MySQL query to find the name (first_name, last_name) of the employees who are managers.
+*/
+SELECT * 
+FROM EMPLOYEES 
+WHERE EMPLOYEE_ID  IN(SELECT MANAGER_ID FROM EMPLOYEES)
+;
