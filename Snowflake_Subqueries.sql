@@ -136,3 +136,7 @@ VALUES
     ('PR_REP', 'Public Relations Representative', 4500, 10500);
 
 /*
+6. Write a MySQL query to find the name (first_name, last_name), and salary of the employees whose salary is equal to the minimum salary for their job grade. */
+SELECT FIRST_NAME, LAST_NAME, SALARY  
+FROM EMPLOYEES E
+JOIN JOBS J ON E.JOB_ID = J.JOB_ID AND E.SALARY = J.MIN_SALARY ;
