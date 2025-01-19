@@ -90,10 +90,17 @@ WHERE manager_id in
             WHERE country_id='US')
         )
     );
-/*
+/* 1/18/25
 4. Write a MySQL query to find the name (first_name, last_name) of the employees who are managers.
 */
 SELECT * 
 FROM EMPLOYEES 
 WHERE EMPLOYEE_ID  IN(SELECT MANAGER_ID FROM EMPLOYEES)
 ;
+
+/*
+5. Write a MySQL query to find the name (first_name, last_name), and salary of the employees whose salary is greater than the average salary.*/
+SELECT FIRST_NAME, LAST_NAME, SALARY, (SELECT AVG(SALARY) FROM EMPLOYEES)
+FROM EMPLOYEES
+WHERE SALARY > (SELECT AVG(SALARY)FROM EMPLOYEES)
+GROUP BY FIRST_NAME, LAST_NAME, SALARY
