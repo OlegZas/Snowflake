@@ -141,6 +141,7 @@ SELECT FIRST_NAME, LAST_NAME, SALARY
 FROM EMPLOYEES E
 JOIN JOBS J ON E.JOB_ID = J.JOB_ID AND E.SALARY = J.MIN_SALARY ;
 
+-- 1/19/2025
 /* 7. Write a MySQL query to find the name (first_name, last_name), and salary of the employees who earns more than the average salary and works in any of the IT departments. */
 SELECT FIRST_NAME, LAST_NAME, SALARY, (SELECT AVG(SALARY) FROM EMPLOYEES)
 FROM EMPLOYEES E
@@ -173,3 +174,8 @@ VALUES
 SELECT FIRST_NAME, LAST_NAME, SALARY
 FROM EMPLOYEES E
 WHERE SALARY > (SELECT SALARY FROM EMPLOYEES WHERE UPPER(LAST_NAME) = 'BELL' );
+
+/* 9. Write a MySQL query to find the name (first_name, last_name), and salary of the employees who earn the same salary as the minimum salary for all departments. */ 
+SELECT FIRST_NAME, LAST_NAME, SALARY
+FROM EMPLOYEES E 
+WHERE SALARY = (SELECT MIN(SALARY) FROM EMPLOYEES);
