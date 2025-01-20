@@ -166,3 +166,10 @@ INSERT INTO employees
     (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID) 
 VALUES 
     (192, 'Sarah', 'Bell', 'SBELL', '650.501.1876', '1987-09-17', 'SH_CLERK', 4000.00, 0.00, 123, 50);
+
+-- *****************************************************************************************************
+-- *****************************************************************************************************
+/*8. Write a MySQL query to find the name (first_name, last_name), and salary of the employees who earns more than the earning of  Bell. */
+SELECT FIRST_NAME, LAST_NAME, SALARY
+FROM EMPLOYEES E
+WHERE SALARY > (SELECT SALARY FROM EMPLOYEES WHERE UPPER(LAST_NAME) = 'BELL' );
