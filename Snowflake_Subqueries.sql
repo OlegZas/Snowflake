@@ -179,3 +179,13 @@ WHERE SALARY > (SELECT SALARY FROM EMPLOYEES WHERE UPPER(LAST_NAME) = 'BELL' );
 SELECT FIRST_NAME, LAST_NAME, SALARY
 FROM EMPLOYEES E 
 WHERE SALARY = (SELECT MIN(SALARY) FROM EMPLOYEES);
+
+/*10. Write a MySQL query to find the name (first_name, last_name), and salary of the employees whose salary is greater than the average salary of each department. */ 
+SELECT E.first_name, E.last_name, E.salary
+FROM EMPLOYEES E
+JOIN (
+    SELECT department_id, AVG(salary) AS avg_salary
+    FROM employees
+    GROUP BY department_id
+) AS avg_dept_salary ON E.department_id = avg_dept_salary.department_id
+WHERE E.salary > avg_dept_salary.avg_salary;
