@@ -189,3 +189,10 @@ JOIN (
     GROUP BY department_id
 ) AS avg_dept_salary ON E.department_id = avg_dept_salary.department_id
 WHERE E.salary > avg_dept_salary.avg_salary;
+
+/*1/20/25
+11. Write a MySQL query to find the name (first_name, last_name) and salary of the employees who earn a salary that is higher than the salary of all the Shipping Clerk (JOB_ID = 'SH_CLERK'). Sort the results of the salary of the lowest to highest.*/
+SELECT FIRST_NAME, LAST_NAME, SALARY
+FROM EMPLOYEES 
+WHERE SALARY > (SELECT SUM(SALARY)FROM EMPLOYEES WHERE JOB_ID = 'SH_CLERK');
+
