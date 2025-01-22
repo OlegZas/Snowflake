@@ -272,10 +272,21 @@ SELECT *
 FROM EMPLOYEES E 
 INNER JOIN RANKED R ON E.EMPLOYEE_ID = R.EMPLOYEE_ID
 WHERE R.SALARY_ORD = 4
+    --ALTERNATIVE: 
+SELECT SALARY
+FROM (
+    SELECT 
+        ROW_NUMBER() OVER (ORDER BY SALARY ASC) AS RowNum, 
+        SALARY
+    FROM EMPLOYEES
+    GROUP BY SALARY
+) AS Subquery
+WHERE RowNum = 4;
  -- ALTERNATIVE: 
 SELECT DISTINCT salary 
 FROM employees e1 
 WHERE 4 = 
     (SELECT COUNT(DISTINCT salary) 
     FROM employees e2 
-    WHERE e2.salary <= e1.salary);
+    WHERE e2.salary <= e1.salary
+    ORDER BY SALARY ASC);
