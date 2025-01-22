@@ -290,3 +290,8 @@ WHERE 4 =
     FROM employees e2 
     WHERE e2.salary <= e1.salary
     ORDER BY SALARY ASC);
+
+--18. Write a MySQL query to select last 10 records from a table.
+SELECT * 
+FROM (SELECT * FROM EMPLOYEES ORDER BY EMPLOYEE_ID DESC LIMIT 10)
+ORDER BY EMPLOYEE_ID ASC ;
