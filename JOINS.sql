@@ -6,3 +6,9 @@ JOIN EMPLOYEES E2 ON E.MANAGER_ID = E2.EMPLOYEE_ID
 JOIN DEPARTMENTS D ON E2.DEPARTMENT_ID = D.DEPARTMENT_ID
 ORDER BY E2.SALARY
 ;
+
+--12. Write a MySQL query to display the job history that were done by any employee who is currently drawing more than 10000 of salary.
+SELECT J.*
+FROM JOB_HISTORY J
+INNER JOIN EMPLOYEES E ON E.EMPLOYEE_ID = J.EMPLOYEE_ID AND SALARY > 10000
+;
