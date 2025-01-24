@@ -317,3 +317,14 @@ SELECT DISTINCT SALARY
 FROM EMPLOYEES
 ORDER BY SALARY ASC
 LIMIT 3;
+
+--22. Write a MySQL query to get nth max salaries of employees.
+WITH RankedSalaries AS (
+  SELECT
+    SALARY,
+    ROW_NUMBER() OVER (ORDER BY SALARY DESC) AS Rank
+  FROM EMPLOYEES
+)
+SELECT SALARY
+FROM RankedSalaries
+WHERE Rank = 5;
