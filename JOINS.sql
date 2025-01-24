@@ -12,3 +12,9 @@ SELECT J.*
 FROM JOB_HISTORY J
 INNER JOIN EMPLOYEES E ON E.EMPLOYEE_ID = J.EMPLOYEE_ID AND SALARY > 10000
 ;
+
+--11. Write a MySQL query to display job title, employee name, and the difference between salary of the employee and minimum salary for the job.
+SELECT JOB_TITLE, FIRST_NAME, LAST_NAME, SALARY, MIN_SALARY,(E.SALARY - MIN_SALARY) AS SALARY_DIFFERENCE_FROM_MIN 
+FROM EMPLOYEES E 
+INNER JOIN JOBS J ON E.JOB_ID = J.JOB_ID
+;
